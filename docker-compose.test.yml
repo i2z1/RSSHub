@@ -1,0 +1,18 @@
+version: '3.8'
+
+services:
+  rsshub-test:
+    build: .
+    ports:
+      - "1200:1200"
+    environment:
+      NODE_ENV: production
+      # Увеличиваем таймаут для тестирования
+      GENERIC_PROXY_TIMEOUT: 30000
+    # Используем DNS серверы Google для лучшего разрешения
+    dns:
+      - 8.8.8.8
+      - 8.8.4.4
+    # Отключаем изоляцию сети для тестирования
+    network_mode: "bridge"
+    restart: "no"
