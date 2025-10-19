@@ -68,6 +68,14 @@ COPY --from=dep-builder /app /app
 
 RUN \
     set -ex && \
+    apt-get update && \
+    apt-get install -yq --no-install-recommends \
+        git \
+    ; \
+    rm -rf /var/lib/apt/lists/*
+
+RUN \
+    set -ex && \
     # cp /app/scripts/docker/minify-docker.js /minifier/ && \
     # export PROJECT_ROOT=/app && \
     # node /minifier/minify-docker.js && \
