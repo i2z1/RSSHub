@@ -69,7 +69,22 @@ COPY --from=dep-builder /app /app
 WORKDIR /app
 RUN \
     set -ex && \
-    pnpm build && \
+
+    apt-get update && \
+    apt-get install -yq --no-install-recommends \
+        git \
+    ; \
+    rm -rf /var/lib/apt/lists/*
+
+    # cp /app/scripts/docker/minify-docker.js /minifier/ && \
+    # export PROJECT_ROOT=/app && \
+    # node /minifier/minify-docker.js && \
+    # rm -rf /app/node_modules /app/scripts && \
+    # mv /app/app-minimal/node_modules /app/ && \
+    # rm -rf /app/app-minimal && \
+
+    npm run build && \
+        pnpm build && \
     rm -rf /app/lib && \
     cp /app/scripts/docker/minify-docker.js /minifier/ && \
     export PROJECT_ROOT=/app && \
@@ -77,6 +92,7 @@ RUN \
     rm -rf /app/node_modules /app/scripts && \
     mv /app/app-minimal/node_modules /app/ && \
     rm -rf /app/app-minimal && \
+
     ls -la /app && \
     du -hd1 /app
 
