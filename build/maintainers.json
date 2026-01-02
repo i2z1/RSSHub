@@ -3270,6 +3270,9 @@
   "/gelonghui/user/:id": [
     "nczitzk"
   ],
+  "/generic_proxy/:url{.+}": [
+    "synchrone"
+  ],
   "/genossenschaften*": [
     "sk22"
   ],

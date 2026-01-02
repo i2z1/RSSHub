@@ -1061,6 +1061,7 @@ export type RoutePath =
   | `/gelonghui/live`
   | `/gelonghui/subject/:id`
   | `/gelonghui/user/:id`
+  | `/generic_proxy/:url{.+}`
   | `/genossenschaften*`
   | `/geocaching/blogs/:language?`
   | `/gesiba*`
