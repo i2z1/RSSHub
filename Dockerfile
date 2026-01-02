@@ -74,7 +74,7 @@ RUN \
     apt-get install -yq --no-install-recommends \
         git \
     ; \
-    rm -rf /var/lib/apt/lists/*
+    rm -rf /var/lib/apt/lists/* ;\
 
     # cp /app/scripts/docker/minify-docker.js /minifier/ && \
     # export PROJECT_ROOT=/app && \
