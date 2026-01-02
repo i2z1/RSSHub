@@ -1,5 +1,6 @@
-import { Route, ViewType } from '@/types';
 import { config } from '@/config';
+import type { Route } from '@/types';
+import { ViewType } from '@/types';
 
 const ENV: Record<string, string | undefined> = (globalThis as any)?.process?.env ?? {};
 
